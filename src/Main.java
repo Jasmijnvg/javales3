@@ -13,26 +13,27 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
-
         while (play) {
             System.out.println("Type 'x' te stop \nType 'v' to translate");
+            String input = scanner.nextLine();
+
             if (input.equals("x")) {
                 play = false;
-            } else if (input.equals("v")) {
-                System.out.println("Type a number between 0 to 9");
             }
 
-            int number = scanner.nextInt();
+            else if (input.equals("v")) {
+                System.out.println("Type a number between 0 to 9");
+                int number = scanner.nextInt();
+                scanner.nextLine();
+                if (number < 10) {
+                    String result = translate.translate(number);
+                    System.out.println("The translation of " + number + " is " + result);
+                }
+            }
 
-            if (number < 10) {
-                String result = translate.translate(number);
-                System.out.println("The translation of " + number + " is " + result);
-            } else {
+            else {
                 System.out.println(invalid);
             }
-
-
         }
     }
 }
